@@ -13,11 +13,7 @@ class GameSetup
   def setup
     order = get_order
     opponent = get_opponent
-    if order == "1"
-      return "HUMAN", opponent
-    else
-      return opponent, "HUMAN"
-    end
+    order == "1" ? ["HUMAN", opponent] : [opponent, "HUMAN"]
   end
 
   private
