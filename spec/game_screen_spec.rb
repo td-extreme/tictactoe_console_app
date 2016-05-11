@@ -38,13 +38,13 @@ describe GameScreen do
     it "returns the correct input" do
       subject.instance_variable_set("@wrapper", wrapper)
       expect(wrapper).to receive(:get_input).and_return("3")
-      expect(subject.get_input(["1", "3"])).to eq("3")
+      expect(subject.get_input([1, 3])).to eq(3)
     end
 
     it "doesn't return an input out of range" do
       subject.instance_variable_set("@wrapper", wrapper)
       expect(wrapper).to receive(:get_input).and_return("5", "1")
-      expect(subject.get_input(["1", "2"])).to eq("1")
+      expect(subject.get_input([1, 2])).to eq(1)
     end
   end
 end

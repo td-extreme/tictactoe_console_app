@@ -19,11 +19,11 @@ class GameScreen
   end
 
   def display_winner(winner)
-    @wrapper.puts_message("Player #{winner} won!")
+    @wrapper.puts_message("\nPlayer #{winner} won!\n\n")
   end
 
   def display_tied
-    @wrapper.puts_message("Tied Game!")
+    @wrapper.puts_message("\nTied Game!\n\n")
   end
 
   def display_message(message)
@@ -32,8 +32,7 @@ class GameScreen
 
   def get_input(range)
     begin
-      input = @wrapper.get_input
-      input.to_i
+      input = @wrapper.get_input.to_i
     end until range.include?(input)
     input
   end
