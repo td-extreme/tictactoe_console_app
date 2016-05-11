@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+lib = File.expand_path("../../lib", __FILE__)
+$:.unshift(lib)
+
+require 'terminal_tictactoe'
+
+ttt = TerminalTicTacToe.new
+
+ttt.setup
+ttt.play_game
