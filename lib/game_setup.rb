@@ -26,7 +26,7 @@ class GameSetup
     @screen.display_message(ORDER_TEXT)
     @screen.get_input(ORDER_CHOICES)
   end
-  
+
   def get_opponent
     @screen.display_message(OPPONENT_TEXT)
     choice = @screen.get_input(OPPONENT_CHOICES)
@@ -40,6 +40,4 @@ class GameSetup
     end
     opponent
   end
- 
 end
-
