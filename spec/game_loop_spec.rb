@@ -10,6 +10,8 @@ describe GameLoop do
       allow(screen).to receive(:clear)
       allow(screen).to receive(:display_title)
       allow(screen).to receive(:display_board)
+      allow(screen).to receive(:display_message)
+      allow(game).to receive(:get_board)
       allow(test_loop).to receive(:play_move)
       expect(game).to receive(:game_over?).and_return(true)
       test_loop.play
@@ -19,6 +21,8 @@ describe GameLoop do
       allow(screen).to receive(:clear)
       allow(screen).to receive(:display_title)
       allow(screen).to receive(:display_board)
+      allow(screen).to receive(:display_message)
+      allow(game).to receive(:get_board)
       expect(test_loop).to receive(:play_move).twice
       expect(game).to receive(:game_over?).and_return(false, true)
       test_loop.play
