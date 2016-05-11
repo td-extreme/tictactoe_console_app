@@ -6,6 +6,10 @@ class GameScreen
     @wrapper = WrapperStdio.new
   end
 
+  def clear
+    @wrapper.clear_screen
+  end
+
   def display_title
     @wrapper.puts_message(" Tic Tac Toe ")
   end
