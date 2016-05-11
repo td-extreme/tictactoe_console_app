@@ -23,7 +23,7 @@ class GameScreen
   end
 
   def display_message(message)
-    @wrapper.puts_message
+    @wrapper.print_message(message)
   end
 
   def get_input(range)
