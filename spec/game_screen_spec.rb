@@ -48,4 +48,3 @@ describe GameScreen do
     end
   end
 end
-

@@ -2,7 +2,6 @@ require 'wrapper_stdio'
 
 class GameScreen
 
-  
   def initialize
     @wrapper = WrapperStdio.new
   end
@@ -40,10 +39,9 @@ class GameScreen
   def format_board(board)
     rtn_board = "\n"
     [0, 3, 6].each do | i|
-      rtn_board << " #{board[i]} | #{board[i+1]} | #{board[i+2]} \n"
-      rtn_board << "--- --- ---\n" if i != 6
+    rtn_board << " #{board[i]} | #{board[i+1]} | #{board[i+2]} \n"
+    rtn_board << "--- --- ---\n" if i != 6
     end
     rtn_board
   end
-
 end
