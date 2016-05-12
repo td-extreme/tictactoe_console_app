@@ -2,8 +2,8 @@ require 'wrapper_stdio'
 
 class GameScreen
 
-  def initialize
-    @wrapper = WrapperStdio.new
+  def initialize(wrapper)
+    @wrapper = wrapper
   end
 
   def clear

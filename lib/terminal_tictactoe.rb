@@ -2,11 +2,12 @@ require 'tictactoe'
 require 'game_screen'
 require 'game_loop'
 require 'game_setup'
+require 'wrapper_stdio'
 
 class TerminalTicTacToe
 
   def initialize
-    @screen = GameScreen.new
+    @screen = GameScreen.new(WrapperStdio.new)
   end
 
   def play_game
