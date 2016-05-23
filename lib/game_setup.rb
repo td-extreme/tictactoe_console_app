@@ -13,7 +13,7 @@ class GameSetup
   def setup
     order = get_order
     opponent = get_opponent
-    order == 1 ? ["HUMAN", opponent] : [opponent, "HUMAN"]
+    order == 1 ? ["human", opponent] : [opponent, "human"]
   end
 
   private
@@ -30,11 +30,11 @@ class GameSetup
     choice = @screen.get_input(OPPONENT_CHOICES)
     case choice
     when 1
-      opponent = "HUMAN"
+      opponent = "human"
     when 2
-      opponent = "EASY"
+      opponent = "easy"
     when 3
-      opponent = "HARD"
+      opponent = "hard"
     end
     opponent
   end
