@@ -33,11 +33,22 @@ class GameScreen
   def get_input(range)
     begin
       input = @wrapper.get_input.to_i
-    end until range.include?(input)
+      input_is_valid = range.include?(input)
+      display_try_again(range) if !input_is_valid
+    end until input_is_valid
     input
   end
 
   private
+
+  def display_try_again(range)
+    rtn_string = "That is not a valid input. Please enter one of the following values ( "
+    range.each do |val|
+      rtn_string << "#{val} "
+    end
+    rtn_string << ") : "
+    display_message(rtn_string)
+  end
 
   def format_board(board)
     rtn_board = "\n"

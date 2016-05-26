@@ -38,6 +38,7 @@ describe GameScreen do
 
     it "doesn't return an input out of range" do
       expect(wrapper).to receive(:get_input).and_return("5", "1")
+      expect(test_screen).to receive(:display_try_again)
       expect(test_screen.get_input([1, 2])).to eq(1)
     end
   end
