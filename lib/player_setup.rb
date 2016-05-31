@@ -21,14 +21,10 @@ class PlayerSetup
   def get_opponent
     screen.clear
     choice = screen.get_opponent
-    case choice
-    when 1
-      opponent = :human
-    when 2
-      opponent = :easy
-    when 3
-      opponent = :hard
-    end
-    opponent
+    {
+      1 => :human,
+      2 => :easy,
+      3 => :hard
+    }[choice]
   end
 end
