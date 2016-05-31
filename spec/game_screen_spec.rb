@@ -4,9 +4,9 @@ describe GameScreen do
 
   let (:wrapper) { double }
   let (:test_screen) { GameScreen.new(wrapper) }
+  let (:board) { [:X, :X, :O, ' ', ' ', ' ', ' ', ' ', ' '] }
   describe "printing the gameboad" do
     it "sends message :print to wrapper_stdio" do
-      board = "dummy"
       expect(wrapper).to receive(:print_message)
       test_screen.display_board(board)
     end
