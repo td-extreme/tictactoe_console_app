@@ -1,7 +1,7 @@
 require 'tictactoe'
 require 'game_screen'
 require 'game_loop'
-require 'game_setup'
+require 'player_setup'
 require 'wrapper_stdio'
 
 class TerminalTicTacToe
