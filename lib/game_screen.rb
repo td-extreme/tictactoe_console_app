@@ -2,6 +2,8 @@ require 'wrapper_stdio'
 
 class GameScreen
 
+  KEY = [1,2,3,4,5,6,7,8,9]
+
   def initialize(wrapper)
     @wrapper = wrapper
   end
@@ -16,6 +18,11 @@ class GameScreen
 
   def display_board(board)
     @wrapper.print_message(format_board(board))
+  end
+
+  def display_key
+    display_message("\n    KEY\n")
+    display_board(KEY)
   end
 
   def display_winner(winner)

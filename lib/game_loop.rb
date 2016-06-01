@@ -1,39 +1,30 @@
 class GameLoop
 
-  KEY = [1,2,3,4,5,6,7,8,9]
-  def initialize(game, screen)
+  def initialize(game, screen, player_manager)
     @game = game
     @screen = screen
+    @player_manager = player_manager
   end
 
   def play
     begin
-      @screen.clear
-      @screen.display_title
-      @screen.display_board(@game.get_board)
-      @screen.display_message("\n    KEY\n")
-      @screen.display_board(KEY)
+      screen.clear
+      screen.display_title
+      screen.display_board(game.get_board)
+      screen.display_key
       play_move
-    end until @game.game_over?
+    end until game.game_over?
   end 
 
   private 
 
-  def play_move
-    if @game.is_current_player_ai?
-      @game.play_move(@game.get_ai_player_move)
-    else
-      @screen.display_message("Please enter a move to play: ")
-      move = get_move
-      @game.play_move(move)
-    end
-  end
+  attr_accessor :game, :screen, :player_manager
 
-  def get_move
-    available_moves = @game.available_moves
-    available_moves.each_with_index do |val, i|
-      available_moves[i] = val + 1
-    end
-    @screen.get_input(available_moves) - 1
+  def play_move
+    current_player = player_manager.current_player
+    game_state = game.get_game_state
+    move = current_player.get_move(game_state)
+    player_manager.switch_turns if game.valid_move?(move)
+    game.play_move(move)
   end
 end

@@ -2,9 +2,24 @@
 lib = File.expand_path("../../lib", __FILE__)
 $:.unshift(lib)
 
+require 'tictactoe'
+require 'game_rules'
+require 'game_board'
+require 'game_loop'
+require 'game_screen'
+require 'wrapper_stdio'
+require 'player_setup'
+require 'player_manager'
 require 'terminal_tictactoe'
 
-ttt = TerminalTicTacToe.new
+game_screen = GameScreen.new(WrapperStdio.new)
+game_rules = GameRules.new
+game_board = GameBoard.new
+player_setup = PlayerSetup.new(game_screen)
+player1, player2 = player_setup.setup
+player_manager = PlayerManager.new(player1, player2, game_rules, game_screen)
+game = TicTacToe.new(game_rules, game_board)
+game_loop = GameLoop.new(game, game_screen, player_manager)
 
-ttt.setup
+ttt = TerminalTicTacToe.new(game, game_loop, game_screen)
 ttt.play_game
