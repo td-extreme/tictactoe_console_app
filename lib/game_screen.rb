@@ -39,6 +39,16 @@ class GameScreen
     input
   end
 
+  def get_opponent
+    display_message ("\nSelect an Opponent to Play against.\n1. Human\n2. Ai Easy\n3. Ai Hard\n:")
+    get_input ([1, 2, 3])
+  end
+
+  def get_player_order
+    display_message ("\nWho should got first.\n1. Player\n2. Opponent\n:")
+    get_input ([1, 2])
+  end
+
   private
 
   def display_try_again(range)
